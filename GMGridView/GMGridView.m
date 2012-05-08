@@ -1735,9 +1735,7 @@ static const UIViewAnimationOptions kDefaultAnimationOptions = UIViewAnimationOp
     CGPoint view1Origin = [self.layoutStrategy originForItemAtPosition:index2];
     CGPoint view2Origin = [self.layoutStrategy originForItemAtPosition:index1];
     
-    view1.frame = CGRectMake(view1Origin.x, view1Origin.y, _itemSize.width, _itemSize.height);
-    view2.frame = CGRectMake(view2Origin.x, view2Origin.y, _itemSize.width, _itemSize.height);
-    
+     
     
     CGRect visibleRect = CGRectMake(self.contentOffset.x,
                                     self.contentOffset.y, 
@@ -1760,6 +1758,9 @@ static const UIViewAnimationOptions kDefaultAnimationOptions = UIViewAnimationOp
                                  [self scrollToObjectAtIndex:index2 atScrollPosition:GMGridViewScrollPositionNone animated:NO];
                              }
                          }
+                         view1.frame = CGRectMake(view1Origin.x, view1Origin.y, _itemSize.width, _itemSize.height);
+                         view2.frame = CGRectMake(view2Origin.x, view2Origin.y, _itemSize.width, _itemSize.height);
+                         
                      } 
                      completion:^(BOOL finished) {
                          [self setNeedsLayout];
